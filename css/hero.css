@@ -1,0 +1,117 @@
+body{
+    background-color: #000000;
+    color: white;
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+header{
+    display: grid;
+    place-items: center;
+    position: relative;
+    height: 100svh;
+    overflow-x: clip;
+    padding-block: 7rem;
+    margin-block-end: 3rem;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.header-content {
+    animation: fade-out linear;
+    animation-timeline: view();
+    animation-range: exit -200px;
+}
+
+.header-image img {
+    background-color: #000000;
+    grid-column: 1/-1;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    object-fit: cover;
+    z-index: -1;
+    transform-origin: top;
+    animation: header-image-animation linear;
+    animation-range: exit -200px;
+    animation-timeline: view()
+}
+
+@keyframes fade-out {
+    to { opacity: 0; }
+}
+
+@keyframes header-image-animation{
+    25% { opacity: 1; scale: 1;}
+    75%, 100% { opacity: 0; scale: 3;}
+}
+
+header h1{
+    color: white;
+    font-size: 70px;
+}
+
+h1, h2, h3{
+  font-family: "Cinzel", serif;
+  color: white;
+}
+
+p, li{
+    font-family: "Nothing You Could Do", cursive;
+}
+
+main{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+.data-grid {
+    padding: 20px 60px;
+}
+ /* FADING OF THE IMAGE */
+ /*@media (prefers-reduced-motion: no-preference)*/
+
+ .img-grid, img {
+    scale: .8; opacity: 0;
+    max-width: 100%;
+    animation: fade-in linear forwards;
+    animation-timeline: view();
+    animation-range: entry 100px;
+}
+
+.img-slider {
+    /* max-height: 50%; */
+}
+
+@keyframes fade-in {
+    to {scale: 1; opacity: 1;}
+}
+
+/* CHANGE SIZE WITH SCROLL */
+.scroll-watcher{
+    height: 10px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: lime;
+    width: 100%;
+    scale: 0 1;
+    transform-origin: left;
+    animation: scroll-watcher linear;
+    animation-timeline: scroll();
+  }
+  
+  @keyframes scroll-watcher{
+      to { scale: 1 1; }
+  }
